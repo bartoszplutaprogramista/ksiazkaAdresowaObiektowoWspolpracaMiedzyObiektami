@@ -6,6 +6,7 @@
 #include <sstream>
 #include "Uzytkownik.h"
 #include "PlikZUzytkownikami.h"
+#include "MetodyPomocnicze.h"
 
 class UzytkownikMenedzer{
     int idZalogowanegoUzytkownika;
@@ -15,10 +16,12 @@ class UzytkownikMenedzer{
     bool czyIstniejeLogin(string login);
     PlikZUzytkownikami plikZUzytkownikami;
 public:
-    UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {};
+    UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {
+        uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+    };
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
-    void wczytajUzytkownikowZPliku();
+    int logowanieUzytkownika();
 };
 
 #endif
