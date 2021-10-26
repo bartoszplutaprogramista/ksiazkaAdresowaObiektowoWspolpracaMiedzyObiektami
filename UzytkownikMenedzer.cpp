@@ -90,3 +90,18 @@ int UzytkownikMenedzer::logowanieUzytkownika(){
     system("pause");
     return 0;
 }
+
+bool UzytkownikMenedzer::czyUzytkownikJestZalogowany(){
+    if(idZalogowanegoUzytkownika > 0)
+        return true;
+    else
+        return false;
+}
+
+int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika(){
+    return idZalogowanegoUzytkownika;
+}
+
+void UzytkownikMenedzer::wylogowanieUzytkownika(){
+    idZalogowanegoUzytkownika = 0;
+}
