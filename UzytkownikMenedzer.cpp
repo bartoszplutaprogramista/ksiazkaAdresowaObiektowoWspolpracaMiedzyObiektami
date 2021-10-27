@@ -102,6 +102,6 @@ int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika(){
     return idZalogowanegoUzytkownika;
 }
 
-void UzytkownikMenedzer::wylogowanieUzytkownika(){
+void UzytkownikMenedzer::wylogowanieUzytkownika(int idZalogowanegoUzytkownika){
     idZalogowanegoUzytkownika = 0;
 }

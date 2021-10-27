@@ -130,8 +130,8 @@ vector <Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(
         idOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
         return adresaci;
     }
-    else
-        return 0;
+//    else
+//        return 0;
 }
 
 string PlikZAdresatami::pobierzLiczbe(string tekst, int pozycjaZnaku){
@@ -154,4 +154,8 @@ bool PlikZAdresatami::czyPlikJestPusty(fstream &plikTekstowy){
 
 int PlikZAdresatami::pobierzIdOstatniegoAdresata(){
     return idOstatniegoAdresata;
+}
+
+string PlikZAdresatami::pobierzNazwePlikuZAdresatami(){
+    return NAZWA_PLIKU_Z_ADRESATAMI;
 }

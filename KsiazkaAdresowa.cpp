@@ -17,7 +17,7 @@ int KsiazkaAdresowa::logowanieUzytkownika(){
 
 int KsiazkaAdresowa::dodajAdresata(){
     if(uzytkownikMenedzer.czyUzytkownikJestZalogowany()){
-        adresatMenedzer->dodajAdresata();
+        adresatMenedzer->dodajAdresata(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
     }
     else {
         cout << "Aby dodac adresata, nalezy sie najpierw zalogowac" << endl;
@@ -34,4 +34,8 @@ void KsiazkaAdresowa::wylogowanieUzytkownika(int idZalogowanegoUzytkownika){
 
 void KsiazkaAdresowa::wyswietlWszystkichAdresatow(){
     adresatMenedzer->wyswietlWszystkichAdresatow();
+}
+
+int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika(){
+    uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
 }

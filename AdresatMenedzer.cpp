@@ -5,10 +5,10 @@ int AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika){
 
     system("cls");
     cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
-    adresat = podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);
+    adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika);
 
     adresaci.push_back(adresat);
-    if (plikZAdresatami.dopiszAdresataDoPliku(adresat)){
+    if (plikZAdresatami.dopiszAdresataDoPliku(adresaci)){
         cout << "Nowy adresat zostal dodany" << endl;
     }
     else {
@@ -57,15 +57,16 @@ int AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogow
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
     fstream plikTekstowy;
-    plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
+    string nowaZmienna = plikZAdresatami.pobierzNazwePlikuZAdresatami();
+    plikTekstowy.open(nowaZmienna.c_str(), ios::in);
 
     if (plikTekstowy.good() == true)
     {
         while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami))
         {
-            if(idZalogowanegoUzytkownika == PlikZAdresatami::pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami))
+            if(idZalogowanegoUzytkownika == plikZAdresatami.pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami))
             {
-                adresat = PlikZAdresatami::pobierzDaneAdresata(daneJednegoAdresataOddzielonePionowymiKreskami);
+                adresat = plikZAdresatami.pobierzDaneAdresata(daneJednegoAdresataOddzielonePionowymiKreskami);
                 adresaci.push_back(adresat);
             }
         }
@@ -78,7 +79,7 @@ int AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogow
 
     if (daneOstaniegoAdresataWPliku != "")
     {
-        idOstatniegoAdresata = PlikZAdresatami::pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
+        idOstatniegoAdresata = plikZAdresatami.pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
         return idOstatniegoAdresata;
     }
     else
