@@ -26,8 +26,14 @@ int KsiazkaAdresowa::dodajAdresata(){
 
 }
 
+/*
 void KsiazkaAdresowa::wylogowanieUzytkownika(int idZalogowanegoUzytkownika){
     uzytkownikMenedzer.wylogowanieUzytkownika(idZalogowanegoUzytkownika);
+    delete adresatMenedzer;
+    adresatMenedzer = NULL;
+} */
+void KsiazkaAdresowa::wylogowanieUzytkownika(){
+    uzytkownikMenedzer.wylogowanieUzytkownika();
     delete adresatMenedzer;
     adresatMenedzer = NULL;
 }

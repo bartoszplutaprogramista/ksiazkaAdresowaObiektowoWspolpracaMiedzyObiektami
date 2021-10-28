@@ -25,7 +25,7 @@ public:
     int logowanieUzytkownika();
     bool czyUzytkownikJestZalogowany();
     int pobierzIdZalogowanegoUzytkownika();
-    void wylogowanieUzytkownika(int idZalogowanegoUzytkownika);
+    void wylogowanieUzytkownika();
 };
 
 #endif

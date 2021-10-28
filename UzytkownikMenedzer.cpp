@@ -49,7 +49,11 @@ bool UzytkownikMenedzer::czyIstniejeLogin(string login)
 }
 
 void UzytkownikMenedzer::wypiszWszystkichUzytkownikow(){
+//    Uzytkownik uzytkownik;
     for (int i=0; i<uzytkownicy.size(); i++){
+/*        cout << uzytkownicy[i].uzytkownik.pobierzId() << endl;
+        cout << uzytkownicy[i].uzytkownik.pobierzLogin() << endl;
+        cout << uzytkownicy[i].uzytkownik.pobierzHaslo() << endl; */
         cout << uzytkownicy[i].pobierzId() << endl;
         cout << uzytkownicy[i].pobierzLogin() << endl;
         cout << uzytkownicy[i].pobierzHaslo() << endl;
@@ -77,6 +81,7 @@ int UzytkownikMenedzer::logowanieUzytkownika(){
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
                     int idZalogowanegoUzytkownika = itr -> pobierzId();
+                    cout << "IdZalogowanegoUzytkownika w funkcji logowanie UZytkownika: " << idZalogowanegoUzytkownika << endl;
                     return idZalogowanegoUzytkownika;
                 }
             }
@@ -102,6 +107,6 @@ int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika(){
     return idZalogowanegoUzytkownika;
 }
 
-void UzytkownikMenedzer::wylogowanieUzytkownika(int idZalogowanegoUzytkownika){
+void UzytkownikMenedzer::wylogowanieUzytkownika(){
     idZalogowanegoUzytkownika = 0;
 }

@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include <vector>
+#include <fstream>
 #include "Adresat.h"
-#include "AdresatMenedzer.h"
 #include "MetodyPomocnicze.h"
 
 using namespace std;
@@ -12,7 +12,7 @@ using namespace std;
 class PlikZAdresatami{
     const string NAZWA_PLIKU_Z_ADRESATAMI;
     int idOstatniegoAdresata;
-
+//    fstream plikTekstowy;
     bool czyPlikJestPusty(fstream &plikTekstowy);
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(vector <Adresat> adresaci);
     string pobierzLiczbe(string tekst, int pozycjaZnaku);
