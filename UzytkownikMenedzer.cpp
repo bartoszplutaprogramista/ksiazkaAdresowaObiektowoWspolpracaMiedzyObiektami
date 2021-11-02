@@ -77,6 +77,8 @@ int UzytkownikMenedzer::logowanieUzytkownika(){
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
                     int idZalogowanegoUzytkownika = itr -> pobierzId();
+                    cout << "IdZalogowanegoUzytkownika w funkcji logowanie UZytkownika: " << idZalogowanegoUzytkownika << endl;
+                    ustawIdZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
                     return idZalogowanegoUzytkownika;
                 }
             }
@@ -89,4 +91,23 @@ int UzytkownikMenedzer::logowanieUzytkownika(){
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
     return 0;
+}
+
+bool UzytkownikMenedzer::czyUzytkownikJestZalogowany(){
+    if(idZalogowanegoUzytkownika > 0)
+        return true;
+    else
+        return false;
+}
+
+void UzytkownikMenedzer::ustawIdZalogowanegoUzytkownika(int id){
+    idZalogowanegoUzytkownika = id;
+}
+
+int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika(){
+    return idZalogowanegoUzytkownika;
+}
+
+void UzytkownikMenedzer::wylogowanieUzytkownika(){
+    idZalogowanegoUzytkownika = 0;
 }
