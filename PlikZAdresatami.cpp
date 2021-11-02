@@ -90,6 +90,7 @@ bool PlikZAdresatami::dopiszAdresataDoPliku(vector <Adresat> adresaci){
             plikTekstowy << endl << liniaZDanymiAdresata ;
         }
         idOstatniegoAdresata++;
+        cout << "idOstatniegoAdresata PO DOPISANIU DO PLIKU WYNOSI: " << endl;
         plikTekstowy.close();
         return true;
     }
@@ -103,7 +104,6 @@ bool PlikZAdresatami::dopiszAdresataDoPliku(vector <Adresat> adresaci){
 vector <Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika){
     vector <Adresat> adresaci;
     Adresat adresat;
-    int idOstatniegoAdresata = 0;
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
     fstream plikTekstowy;
@@ -128,10 +128,8 @@ vector <Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(
     if (daneOstaniegoAdresataWPliku != "")
     {
         idOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
-        return adresaci;
     }
-//    else
-//        return 0;
+    return adresaci;
 }
 
 string PlikZAdresatami::pobierzLiczbe(string tekst, int pozycjaZnaku){

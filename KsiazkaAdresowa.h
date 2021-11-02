@@ -10,10 +10,10 @@ class KsiazkaAdresowa{
     UzytkownikMenedzer uzytkownikMenedzer;
     AdresatMenedzer *adresatMenedzer;
     const string NAZWA_PLIKU_Z_ADRESATAMI;
+    int id;
 public:
     KsiazkaAdresowa(string NazwaPlikuZUzytkownikami, string NazwaPlikuZAdresatami)
     : uzytkownikMenedzer(NazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(NazwaPlikuZAdresatami){
-//        uzytkownikMenedzer.wczytajUzytkownikowZPliku();
     adresatMenedzer = NULL;
     };
     ~KsiazkaAdresowa(){
@@ -26,6 +26,7 @@ public:
     int dodajAdresata();
     void wyswietlWszystkichAdresatow();
     int pobierzIdZalogowanegoUzytkownika();
+    void ustawIdZalogowanegoUzytkownika(int id);
     void wylogowanieUzytkownika();
 };
 

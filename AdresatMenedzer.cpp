@@ -2,7 +2,6 @@
 
 int AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika){
     Adresat adresat;
-
     system("cls");
     cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
     adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika);
@@ -15,7 +14,7 @@ int AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika){
         cout << "Blad nieudalo sie dodac nowego adresata do pliku" << endl;
         system("pause");
     }
-    return ++idOstatniegoAdresata;
+    return plikZAdresatami.pobierzIdOstatniegoAdresata();
 }
 
 string AdresatMenedzer::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst){
@@ -49,41 +48,6 @@ Adresat AdresatMenedzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika){
     adresat.ustawAdres(MetodyPomocnicze::wczytajLinie());
 
     return adresat;
-}
-
-int AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika){
-    Adresat adresat;
-    int idOstatniegoAdresata = 0;
-    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
-    string daneOstaniegoAdresataWPliku = "";
-    fstream plikTekstowy;
-    string nowaZmienna = plikZAdresatami.pobierzNazwePlikuZAdresatami();
-    plikTekstowy.open(nowaZmienna.c_str(), ios::in);
-
-    if (plikTekstowy.good() == true)
-    {
-        while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami))
-        {
-            if(idZalogowanegoUzytkownika == plikZAdresatami.pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami))
-            {
-                adresat = plikZAdresatami.pobierzDaneAdresata(daneJednegoAdresataOddzielonePionowymiKreskami);
-                adresaci.push_back(adresat);
-            }
-        }
-        daneOstaniegoAdresataWPliku = daneJednegoAdresataOddzielonePionowymiKreskami;
-    }
-    else
-        cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
-
-    plikTekstowy.close();
-
-    if (daneOstaniegoAdresataWPliku != "")
-    {
-        idOstatniegoAdresata = plikZAdresatami.pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
-        return idOstatniegoAdresata;
-    }
-    else
-        return 0;
 }
 
 void AdresatMenedzer::wyswietlWszystkichAdresatow(){

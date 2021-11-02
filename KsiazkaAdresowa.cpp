@@ -26,20 +26,19 @@ int KsiazkaAdresowa::dodajAdresata(){
 
 }
 
-/*
-void KsiazkaAdresowa::wylogowanieUzytkownika(int idZalogowanegoUzytkownika){
-    uzytkownikMenedzer.wylogowanieUzytkownika(idZalogowanegoUzytkownika);
-    delete adresatMenedzer;
-    adresatMenedzer = NULL;
-} */
 void KsiazkaAdresowa::wylogowanieUzytkownika(){
     uzytkownikMenedzer.wylogowanieUzytkownika();
     delete adresatMenedzer;
     adresatMenedzer = NULL;
+    cout << "Wylogowano poprawnie" << endl;
 }
 
 void KsiazkaAdresowa::wyswietlWszystkichAdresatow(){
     adresatMenedzer->wyswietlWszystkichAdresatow();
+}
+
+void KsiazkaAdresowa::ustawIdZalogowanegoUzytkownika(int id){
+    uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(id);
 }
 
 int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika(){

@@ -14,8 +14,6 @@ class AdresatMenedzer{
     const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
     vector <Adresat> adresaci;
     PlikZAdresatami plikZAdresatami;
-    int idOstatniegoAdresata;
-
     Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);
     void wyswietlDaneAdresata(Adresat adresat);
 public:
@@ -26,10 +24,6 @@ public:
 
     int dodajAdresata(int idZalogowanegoUzytkownika);
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
-    int wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
-//    void ustawIdOstatniegoAdresata(int noweIdOstatniegoAdresata);
-//    int pobierzIdOstatniegoAdresata();
-//    void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     void wyswietlWszystkichAdresatow();
     void wyswietlDaneAdresata(int i);
 
