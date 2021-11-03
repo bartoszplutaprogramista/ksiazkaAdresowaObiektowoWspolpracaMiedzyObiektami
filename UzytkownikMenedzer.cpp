@@ -76,7 +76,7 @@ int UzytkownikMenedzer::logowanieUzytkownika(){
                 {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
-                    int idZalogowanegoUzytkownika = itr -> pobierzId();
+                    idZalogowanegoUzytkownika = itr -> pobierzId();
                     cout << "IdZalogowanegoUzytkownika w funkcji logowanie UZytkownika: " << idZalogowanegoUzytkownika << endl;
                     ustawIdZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
                     return idZalogowanegoUzytkownika;
