@@ -9,6 +9,8 @@
 
 using namespace std;
 
+//class MetodyPomocnicze;
+
 class PlikZAdresatami{
     const string NAZWA_PLIKU_Z_ADRESATAMI;
     int idOstatniegoAdresata;
@@ -26,9 +28,11 @@ public:
     int pobierzIdOstatniegoAdresata();
     void ustawIdOstatniegoAdresata(int numerOstatniegoAdresata);
     string pobierzNazwePlikuZAdresatami();
+//    void ustawNazwePlikuZAdresatami(string NAZWA_PLIKU_Z_ADRESATAMI);
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
+    void usunWybranaLinieWPliku(int numerUsuwanejLinii);
 };
 
 #endif

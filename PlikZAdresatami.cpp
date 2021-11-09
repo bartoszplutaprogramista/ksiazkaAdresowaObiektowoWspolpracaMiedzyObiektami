@@ -154,6 +154,53 @@ int PlikZAdresatami::pobierzIdOstatniegoAdresata(){
     return idOstatniegoAdresata;
 }
 
+//void PlikZAdresatami::ustawNazwePlikuZAdresatami(string nowa){
+//    NAZWA_PLIKU_Z_ADRESATAMI = nowa;
+//}
+
 string PlikZAdresatami::pobierzNazwePlikuZAdresatami(){
     return NAZWA_PLIKU_Z_ADRESATAMI;
+}
+
+void PlikZAdresatami::usunWybranaLinieWPliku(int numerUsuwanejLinii){
+    fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
+    string wczytanaLinia = "";
+    int numerWczytanejLinii = 1;
+    string nazwaTymczasowegoPlikuZAdresatami = "Adresaci_tymczasowo.txt";
+
+//    string nowa = plikZAdresatami.NAZWA_PLIKU_Z_ADRESATAMI;
+//    plikZAdresatami.ustawNazwePlikuZAdresatami(NAZWA_PLIKU_Z_ADRESATAMI);
+//    string nowa = plikZAdresatami.pobierzNazwePlikuZAdresatami();
+//    string nowa = PlikZAdresatami::pobierzNazwePlikuZAdresatami();
+
+//    cout << "NOWA WYNOSI: " << nowa << endl;
+//    getch();
+
+    odczytywanyPlikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
+    tymczasowyPlikTekstowy.open(nazwaTymczasowegoPlikuZAdresatami.c_str(), ios::out | ios::app);
+
+    if (odczytywanyPlikTekstowy.good() == true && numerUsuwanejLinii != 0)
+    {
+        while (getline(odczytywanyPlikTekstowy, wczytanaLinia))
+        {
+            // Tych przypadkow jest tyle, gdyz chcemy osiagnac taki efekt,
+            // aby na koncu pliku nie bylo pustej linii
+            if (numerWczytanejLinii == numerUsuwanejLinii) {}
+            else if (numerWczytanejLinii == 1 && numerWczytanejLinii != numerUsuwanejLinii)
+                tymczasowyPlikTekstowy << wczytanaLinia;
+            else if (numerWczytanejLinii == 2 && numerUsuwanejLinii == 1)
+                tymczasowyPlikTekstowy << wczytanaLinia;
+            else if (numerWczytanejLinii > 2 && numerUsuwanejLinii == 1)
+                tymczasowyPlikTekstowy << endl << wczytanaLinia;
+            else if (numerWczytanejLinii > 1 && numerUsuwanejLinii != 1)
+                tymczasowyPlikTekstowy << endl << wczytanaLinia;
+            numerWczytanejLinii++;
+        }
+        odczytywanyPlikTekstowy.close();
+        tymczasowyPlikTekstowy.close();
+
+
+        MetodyPomocnicze::usunPlik(NAZWA_PLIKU_Z_ADRESATAMI);
+        MetodyPomocnicze::zmienNazwePliku(nazwaTymczasowegoPlikuZAdresatami, NAZWA_PLIKU_Z_ADRESATAMI);
+    }
 }

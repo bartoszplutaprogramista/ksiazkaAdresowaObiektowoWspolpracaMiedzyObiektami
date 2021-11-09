@@ -77,3 +77,81 @@ void AdresatMenedzer::wyswietlDaneAdresata(int i){
     cout << "Adres:              " << adresaci[i].pobierzAdres() << endl;
 }
 
+int AdresatMenedzer::usunAdresata(){
+    Adresat adresat;
+//    MetodyPomocnicze metodyPomocnicze;
+    int idUsuwanegoAdresata = 0;
+    int numerLiniiUsuwanegoAdresata = 0;
+
+    system("cls");
+    cout << ">>> USUWANIE WYBRANEGO ADRESATA <<<" << endl << endl;
+    idUsuwanegoAdresata = MetodyPomocnicze::podajIdWybranegoAdresata();
+
+    cout << "idUsuwanegoAdresata w funkcji glownej: " << idUsuwanegoAdresata << endl;
+    getch();
+
+    char znak;
+    bool czyIstniejeAdresat = false;
+
+    for (vector <Adresat>::iterator itr = adresaci.begin(); itr != adresaci.end(); itr++)
+    {
+        if (itr -> pobierzId() == idUsuwanegoAdresata)
+        {
+            czyIstniejeAdresat = true;
+            cout << endl << "Potwierdz naciskajac klawisz 't': ";
+            znak = MetodyPomocnicze::wczytajZnak();
+            if (znak == 't')
+            {
+                numerLiniiUsuwanegoAdresata = zwrocNumerLiniiSzukanegoAdresata(idUsuwanegoAdresata);
+                plikZAdresatami.usunWybranaLinieWPliku(numerLiniiUsuwanegoAdresata);
+//                metodyPomocnicze.usunWybranaLinieWPliku(numerLiniiUsuwanegoAdresata);
+                adresaci.erase(itr);
+                cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
+                system("pause");
+                return idUsuwanegoAdresata;
+            }
+            else
+            {
+                cout << endl << endl << "Wybrany adresat NIE zostal usuniety" << endl << endl;
+                system("pause");
+                return 0;
+            }
+        }
+    }
+    if (czyIstniejeAdresat == false)
+    {
+        cout << endl << "Nie ma takiego adresata w ksiazce adresowej" << endl << endl;
+        system("pause");
+    }
+    return 0;
+}
+
+int AdresatMenedzer::zwrocNumerLiniiSzukanegoAdresata(int idAdresata){
+    bool czyIstniejeAdresat = false;
+    int numerLiniiWPlikuTekstowym = 1;
+    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
+    fstream plikTekstowy;
+    string nowy = plikZAdresatami.pobierzNazwePlikuZAdresatami();
+    plikTekstowy.open(nowy.c_str(), ios::in);
+
+    if (plikTekstowy.good() == true && idAdresata != 0)
+    {
+        while(getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami))
+        {
+            if(idAdresata == plikZAdresatami.pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami))
+            {
+                czyIstniejeAdresat = true;
+                plikTekstowy.close();
+                return numerLiniiWPlikuTekstowym;
+            }
+            else
+                numerLiniiWPlikuTekstowym++;
+        }
+        if (czyIstniejeAdresat == false)
+        {
+            plikTekstowy.close();
+            return 0;
+        }
+    }
+    return 0;
+}
