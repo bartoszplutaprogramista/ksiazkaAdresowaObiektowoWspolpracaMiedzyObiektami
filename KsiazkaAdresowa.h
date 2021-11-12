@@ -29,6 +29,7 @@ public:
     void ustawIdZalogowanegoUzytkownika(int id);
     void wylogowanieUzytkownika();
     int usunAdresata();
+    void edytujAdresata();
 };
 
 #endif

@@ -27,11 +27,13 @@ public:
 
     int dodajAdresata(int idZalogowanegoUzytkownika);
     int usunAdresata();
+    void edytujAdresata();
     int zwrocNumerLiniiSzukanegoAdresata(int idAdresata);
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
     void wyswietlWszystkichAdresatow();
     void wyswietlDaneAdresata(int i);
-
+    int podajIdWybranegoAdresata();
+    void zaktualizujDaneWybranegoAdresata(vector <Adresat> adresaci, int idEdytowanegoAdresata);
 };
 
 #endif

@@ -4,6 +4,7 @@
 #include <sstream>
 #include <fstream>
 #include <conio.h>
+#include <algorithm>
 
 //#include "PlikZAdresatami.h"
 
@@ -27,6 +28,8 @@ public:
 //    static void usunWybranaLinieWPliku(int numerUsuwanejLinii);
     static void usunPlik(string nazwaPlikuZRozszerzeniem);
     static void zmienNazwePliku(string staraNazwa, string nowaNazwa);
+    static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
+    static char wybierzOpcjeZMenuEdycja();
 };
 
 #endif
