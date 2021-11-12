@@ -28,6 +28,8 @@ public:
     int pobierzIdZalogowanegoUzytkownika();
     void ustawIdZalogowanegoUzytkownika(int id);
     void wylogowanieUzytkownika();
+    int usunAdresata();
+    void edytujAdresata();
 };
 
 #endif

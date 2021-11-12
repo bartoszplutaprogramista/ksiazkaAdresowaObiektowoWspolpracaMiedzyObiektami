@@ -44,3 +44,11 @@ void KsiazkaAdresowa::ustawIdZalogowanegoUzytkownika(int id){
 int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika(){
     uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
 }
+
+int KsiazkaAdresowa::usunAdresata(){
+    adresatMenedzer->usunAdresata();
+}
+
+void KsiazkaAdresowa::edytujAdresata(){
+    adresatMenedzer->edytujAdresata();
+}
