@@ -58,6 +58,7 @@ void UzytkownikMenedzer::wypiszWszystkichUzytkownikow(){
 
 int UzytkownikMenedzer::logowanieUzytkownika(){
     Uzytkownik uzytkownik;
+    MetodyPomocnicze metodyPomocnicze;
     string login = "", haslo = "";
     cout << endl << "Podaj login: ";
     login = MetodyPomocnicze::wczytajLinie();
@@ -77,7 +78,6 @@ int UzytkownikMenedzer::logowanieUzytkownika(){
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
                     idZalogowanegoUzytkownika = itr -> pobierzId();
-                    cout << "IdZalogowanegoUzytkownika w funkcji logowanie UZytkownika: " << idZalogowanegoUzytkownika << endl;
                     ustawIdZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
                     return idZalogowanegoUzytkownika;
                 }

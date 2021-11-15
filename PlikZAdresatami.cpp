@@ -103,7 +103,6 @@ bool PlikZAdresatami::dopiszAdresataDoPliku(vector <Adresat> adresaci){
             plikTekstowy << endl << liniaZDanymiAdresata ;
         }
         idOstatniegoAdresata++;
-        cout << "idOstatniegoAdresata PO DOPISANIU DO PLIKU WYNOSI: " << endl;
         plikTekstowy.close();
         return true;
     }
@@ -167,10 +166,6 @@ int PlikZAdresatami::pobierzIdOstatniegoAdresata(){
     return idOstatniegoAdresata;
 }
 
-//void PlikZAdresatami::ustawNazwePlikuZAdresatami(string nowa){
-//    NAZWA_PLIKU_Z_ADRESATAMI = nowa;
-//}
-
 string PlikZAdresatami::pobierzNazwePlikuZAdresatami(){
     return NAZWA_PLIKU_Z_ADRESATAMI;
 }
@@ -181,14 +176,6 @@ void PlikZAdresatami::usunWybranaLinieWPliku(int numerUsuwanejLinii){
     int numerWczytanejLinii = 1;
     string nazwaTymczasowegoPlikuZAdresatami = "Adresaci_tymczasowo.txt";
 
-//    string nowa = plikZAdresatami.NAZWA_PLIKU_Z_ADRESATAMI;
-//    plikZAdresatami.ustawNazwePlikuZAdresatami(NAZWA_PLIKU_Z_ADRESATAMI);
-//    string nowa = plikZAdresatami.pobierzNazwePlikuZAdresatami();
-//    string nowa = PlikZAdresatami::pobierzNazwePlikuZAdresatami();
-
-//    cout << "NOWA WYNOSI: " << nowa << endl;
-//    getch();
-
     odczytywanyPlikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
     tymczasowyPlikTekstowy.open(nazwaTymczasowegoPlikuZAdresatami.c_str(), ios::out | ios::app);
 
@@ -196,8 +183,6 @@ void PlikZAdresatami::usunWybranaLinieWPliku(int numerUsuwanejLinii){
     {
         while (getline(odczytywanyPlikTekstowy, wczytanaLinia))
         {
-            // Tych przypadkow jest tyle, gdyz chcemy osiagnac taki efekt,
-            // aby na koncu pliku nie bylo pustej linii
             if (numerWczytanejLinii == numerUsuwanejLinii) {}
             else if (numerWczytanejLinii == 1 && numerWczytanejLinii != numerUsuwanejLinii)
                 tymczasowyPlikTekstowy << wczytanaLinia;

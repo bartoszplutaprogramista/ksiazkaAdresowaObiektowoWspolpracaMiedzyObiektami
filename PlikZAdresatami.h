@@ -9,8 +9,6 @@
 
 using namespace std;
 
-//class MetodyPomocnicze;
-
 class PlikZAdresatami{
     const string NAZWA_PLIKU_Z_ADRESATAMI;
     int idOstatniegoAdresata;
@@ -29,7 +27,6 @@ public:
     string pobierzNazwePlikuZAdresatami();
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(vector <Adresat> adresaci);
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskamiWMetodzieEdytujAdresata(vector <Adresat> adresaci, int i);
-//    void ustawNazwePlikuZAdresatami(string NAZWA_PLIKU_Z_ADRESATAMI);
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);

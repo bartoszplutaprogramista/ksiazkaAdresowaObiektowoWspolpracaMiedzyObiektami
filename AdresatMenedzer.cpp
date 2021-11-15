@@ -9,6 +9,7 @@ int AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika){
     adresaci.push_back(adresat);
     if (plikZAdresatami.dopiszAdresataDoPliku(adresaci)){
         cout << "Nowy adresat zostal dodany" << endl;
+        system("pause");
     }
     else {
         cout << "Blad nieudalo sie dodac nowego adresata do pliku" << endl;
@@ -79,7 +80,6 @@ void AdresatMenedzer::wyswietlDaneAdresata(int i){
 
 int AdresatMenedzer::usunAdresata(){
     Adresat adresat;
-//    MetodyPomocnicze metodyPomocnicze;
     int idUsuwanegoAdresata = 0;
     int numerLiniiUsuwanegoAdresata = 0;
 
@@ -104,7 +104,6 @@ int AdresatMenedzer::usunAdresata(){
             {
                 numerLiniiUsuwanegoAdresata = zwrocNumerLiniiSzukanegoAdresata(idUsuwanegoAdresata);
                 plikZAdresatami.usunWybranaLinieWPliku(numerLiniiUsuwanegoAdresata);
-//                metodyPomocnicze.usunWybranaLinieWPliku(numerLiniiUsuwanegoAdresata);
                 adresaci.erase(itr);
                 cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
                 system("pause");
@@ -184,8 +183,6 @@ void AdresatMenedzer::edytujAdresata(){
                 cout << "Imie nowego adresata wynosi: " << adresaci[i].pobierzImie() << endl;
                 getch();
                 adresaci[i].ustawImie(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(adresaci[i].pobierzImie()));
-//                cout << "Imie nowego adresata wynosi po drugim: " << adresaci[i].pobierzImie() << endl;
-//                getch();
                 zaktualizujDaneWybranegoAdresata(adresaci, idEdytowanegoAdresata);
                 break;
             case '2':
@@ -235,17 +232,12 @@ int AdresatMenedzer::podajIdWybranegoAdresata(){
 void AdresatMenedzer::zaktualizujDaneWybranegoAdresata(vector <Adresat> adresaci, int idEdytowanegoAdresata){
     int numerLiniiEdytowanegoAdresata = 0;
     string liniaZDanymiAdresata = "";
-//    PlikZAdresatami &plikZAdresatami;
 
     numerLiniiEdytowanegoAdresata = zwrocNumerLiniiSzukanegoAdresata(idEdytowanegoAdresata);
-    cout << "numerLinii Edytowanego Adreaaa : " << numerLiniiEdytowanegoAdresata << endl;
-    getch();
     int sizeOfVectorAdresaci = adresaci.size();
     for (int i=0; i<sizeOfVectorAdresaci; i++){
         if (adresaci[i].pobierzId()==idEdytowanegoAdresata){
             liniaZDanymiAdresata = plikZAdresatami.zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskamiWMetodzieEdytujAdresata(adresaci, i);
-            cout << "Linia z danymi po zmianie: " << liniaZDanymiAdresata << endl;
-            getch();
         }
     }
     plikZAdresatami.edytujWybranaLinieWPliku(numerLiniiEdytowanegoAdresata, liniaZDanymiAdresata);
