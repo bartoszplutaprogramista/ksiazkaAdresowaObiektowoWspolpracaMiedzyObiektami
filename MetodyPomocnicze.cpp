@@ -46,8 +46,6 @@ int MetodyPomocnicze::podajIdWybranegoAdresata(){
     cout << "Podaj numer ID Adresata: ";
     idWybranegoAdresata  = wczytajLiczbeCalkowita();
 
-    cout << "idWybranegoAdresata w funkcji podaj: " << idWybranegoAdresata << endl;
-    getch();
     return idWybranegoAdresata;
 }
 
