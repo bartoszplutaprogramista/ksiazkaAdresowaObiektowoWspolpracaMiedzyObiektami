@@ -34,6 +34,7 @@ public:
     void usunWybranaLinieWPliku(int numerUsuwanejLinii);
     void edytujWybranaLinieWPliku(int numerEdytowanejLinii, string liniaZDanymiAdresataOddzielonePionowymiKreskami);
     void usunWybranegoAdresataIZapiszZmianyWPlikuTekstowym(int idAdresata);
+    void zmienDaneEdytowanegoAdresataIZapiszZmianyDoPlikuTekstowego(string liniaZDanymiAdresata, int idEdytowanegoAdresata);
 };
 
 #endif
