@@ -1,5 +1,6 @@
 #include "PlikZAdresatami.h"
 
+/*
 string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(vector <Adresat> adresaci){
     string liniaZDanymiAdresata = "";
 
@@ -13,9 +14,9 @@ string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKre
     liniaZDanymiAdresata += adresaci[sizeOfVectorAdresaci-1].pobierzEmail() + '|';
     liniaZDanymiAdresata += adresaci[sizeOfVectorAdresaci-1].pobierzAdres() + '|';
     return liniaZDanymiAdresata;
-}
+} */
 
-string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskamiWMetodzieEdytujAdresata(vector <Adresat> adresaci, int i){
+string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(vector <Adresat> adresaci, int i){
     string liniaZDanymiAdresata = "";
 
     liniaZDanymiAdresata += MetodyPomocnicze::konwerjsaIntNaString(adresaci[i].pobierzId()) + '|';
@@ -89,10 +90,11 @@ bool PlikZAdresatami::dopiszAdresataDoPliku(vector <Adresat> adresaci){
     string liniaZDanymiAdresata = "";
     fstream plikTekstowy;
     plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::out | ios::app);
+    int sizeOfVectorAdresaci = (adresaci.size())-1;
 
     if (plikTekstowy.good() == true)
     {
-        liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresaci);
+        liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresaci, sizeOfVectorAdresaci);
 
         if (czyPlikJestPusty(plikTekstowy) == true)
         {

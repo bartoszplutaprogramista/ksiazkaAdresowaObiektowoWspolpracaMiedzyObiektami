@@ -232,13 +232,12 @@ void AdresatMenedzer::zaktualizujDaneWybranegoAdresata(vector <Adresat> adresaci
     int sizeOfVectorAdresaci = adresaci.size();
     for (int i=0; i<sizeOfVectorAdresaci; i++){
         if (adresaci[i].pobierzId()==idEdytowanegoAdresata){
-            liniaZDanymiAdresata = plikZAdresatami.zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskamiWMetodzieEdytujAdresata(adresaci, i);
+            liniaZDanymiAdresata = plikZAdresatami.zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresaci, i);
         }
     }
     plikZAdresatami.zmienDaneEdytowanegoAdresataIZapiszZmianyDoPlikuTekstowego(liniaZDanymiAdresata, idEdytowanegoAdresata);
 
     cout << endl << "Dane zostaly zaktualizowane." << endl << endl;
-    getch();
 }
 
 
