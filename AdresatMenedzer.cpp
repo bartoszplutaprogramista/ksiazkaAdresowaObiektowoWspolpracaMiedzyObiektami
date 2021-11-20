@@ -102,8 +102,11 @@ int AdresatMenedzer::usunAdresata(){
             znak = MetodyPomocnicze::wczytajZnak();
             if (znak == 't')
             {
-                numerLiniiUsuwanegoAdresata = zwrocNumerLiniiSzukanegoAdresata(idUsuwanegoAdresata);
-                plikZAdresatami.usunWybranaLinieWPliku(numerLiniiUsuwanegoAdresata);
+
+                plikZAdresatami.usunWybranegoAdresataIZapiszZmianyWPlikuTekstowym(idUsuwanegoAdresata);
+
+//                numerLiniiUsuwanegoAdresata = zwrocNumerLiniiSzukanegoAdresata(idUsuwanegoAdresata);
+//                plikZAdresatami.usunWybranaLinieWPliku(numerLiniiUsuwanegoAdresata);
                 adresaci.erase(itr);
                 cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
                 system("pause");
@@ -154,6 +157,7 @@ int AdresatMenedzer::zwrocNumerLiniiSzukanegoAdresata(int idAdresata){
     }
     return 0;
 }
+
 
 void AdresatMenedzer::edytujAdresata(){
     system("cls");
