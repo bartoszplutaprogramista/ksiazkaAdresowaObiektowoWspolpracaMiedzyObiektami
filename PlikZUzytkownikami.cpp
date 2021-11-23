@@ -1,5 +1,6 @@
 #include "PlikZUzytkownikami.h"
 
+/*
 bool PlikZUzytkownikami::czyPlikJestPusty(){
 //    fstream plikTekstowy;
     plikTekstowy.seekg(0, ios::end);
@@ -7,7 +8,7 @@ bool PlikZUzytkownikami::czyPlikJestPusty(){
         return true;
     else
         return false;
-}
+} */
 
 void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik){
 //    fstream plikTekstowy;

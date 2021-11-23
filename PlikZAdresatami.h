@@ -6,19 +6,20 @@
 #include <fstream>
 #include "Adresat.h"
 #include "MetodyPomocnicze.h"
+#include "PlikTekstowy.h"
 
 using namespace std;
 
-class PlikZAdresatami{
-    const string NAZWA_PLIKU_Z_ADRESATAMI;
+class PlikZAdresatami : public PlikTekstowy{
+//    const string NAZWA_PLIKU_Z_ADRESATAMI;
     int idOstatniegoAdresata;
     int numerOstatniegoAdresata;
-    bool czyPlikJestPusty(fstream &plikTekstowy);
+//    bool czyPlikJestPusty(fstream &plikTekstowy);
     string pobierzLiczbe(string tekst, int pozycjaZnaku);
     int idAdresata;
 
 public:
-    PlikZAdresatami(string nazwaPlikuZAdresatami) : NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami){
+    PlikZAdresatami(string nazwaPlikuZAdresatami) : NAZWA_PLIKU(nazwaPlikuZAdresatami){
         idOstatniegoAdresata = 0;
     }
     bool dopiszAdresataDoPliku(vector <Adresat> adresaci);
