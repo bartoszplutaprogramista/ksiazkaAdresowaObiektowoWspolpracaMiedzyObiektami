@@ -59,15 +59,17 @@ void UzytkownikMenedzer::wypiszWszystkichUzytkownikow(){
 int UzytkownikMenedzer::logowanieUzytkownika(){
     Uzytkownik uzytkownik;
     MetodyPomocnicze metodyPomocnicze;
+    int ileRazy = 1;
+    int rozmiarVectora = uzytkownicy.size();
     string login = "", haslo = "";
+    system("cls");
+    cout << ">>> LOGOWANIE UZYTKOWNIKA <<<" << endl << endl;
     cout << endl << "Podaj login: ";
     login = MetodyPomocnicze::wczytajLinie();
 
     vector <Uzytkownik>::iterator itr = uzytkownicy.begin();
-    while (itr != uzytkownicy.end())
-    {
-        if (itr -> pobierzLogin() == login)
-        {
+    while (itr != uzytkownicy.end()){
+        if (itr -> pobierzLogin() == login){
             for (int iloscProb = 3; iloscProb > 0; iloscProb--)
             {
                 cout << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
@@ -86,11 +88,34 @@ int UzytkownikMenedzer::logowanieUzytkownika(){
             system("pause");
             return 0;
         }
+        else if ((itr -> pobierzLogin() != login) && (ileRazy == rozmiarVectora)){
+            cout << "Nie ma uzytkownika z takim loginem" << endl;
+            cout << "Sprobuj jeszcze raz" << endl;
+            system("pause");
+            logowanieUzytkownika();
+        }
+        ileRazy++;
         itr++;
     }
-    cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
-    system("pause");
     return 0;
+}
+
+void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika(){
+    string noweHaslo = "";
+    Uzytkownik uzytkownik;
+    cout << "Podaj nowe haslo: ";
+    noweHaslo = MetodyPomocnicze::wczytajLinie();
+    int sizeOfVector = uzytkownicy.size();
+    for (int i=0; i<sizeOfVector; i++)
+    {
+        if (uzytkownicy[i].pobierzId() == idZalogowanegoUzytkownika)
+        {
+           uzytkownicy[i].ustawHaslo(noweHaslo);
+        }
+    }
+    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+    cout << "Haslo zostalo zmienione." << endl << endl;
+    system("pause");
 }
 
 bool UzytkownikMenedzer::czyUzytkownikJestZalogowany(){

@@ -20,6 +20,7 @@ public:
         delete adresatMenedzer;
         adresatMenedzer = NULL;
     };
+    void zmianaHaslaZalogowanegoUzytkownika();
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
     int logowanieUzytkownika();

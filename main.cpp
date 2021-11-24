@@ -13,7 +13,8 @@ int menu(KsiazkaAdresowa &ksiazkaAdresowa){
         cout << "2. Wyswietl wszystkich adresatow" << endl;
         cout << "3. Usun adresata" << endl;
         cout << "4. Edytuj adresata" << endl;
-        cout << "5. Wyloguj sie" << endl;
+        cout << "5. Zmiana hasla" << endl;
+        cout << "6. Wyloguj sie" << endl;
 
         cin >> wybranie;
         if(wybranie == '1') {
@@ -25,6 +26,8 @@ int menu(KsiazkaAdresowa &ksiazkaAdresowa){
         } else if (wybranie == '4') {
             ksiazkaAdresowa.edytujAdresata();
         } else if (wybranie == '5') {
+            ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+        } else if (wybranie == '6') {
             ksiazkaAdresowa.wylogowanieUzytkownika();
             return 0;
         }
@@ -46,7 +49,9 @@ int main()
 
         if(wybor == '1') {
             ksiazkaAdresowa.logowanieUzytkownika();
-            menu(ksiazkaAdresowa);
+            if (ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika() > 0){
+                menu(ksiazkaAdresowa);
+            }
         } else if (wybor == '2') {
             ksiazkaAdresowa.rejestracjaUzytkownika();
         } else if (wybor == '3') {

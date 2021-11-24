@@ -52,3 +52,7 @@ int KsiazkaAdresowa::usunAdresata(){
 void KsiazkaAdresowa::edytujAdresata(){
     adresatMenedzer->edytujAdresata();
 }
+
+void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika(){
+    uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
+}
