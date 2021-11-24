@@ -6,11 +6,11 @@
 #include <cstdlib>
 #include "Uzytkownik.h"
 #include "MetodyPomocnicze.h"
+#include "PlikTekstowy.h"
 
-class PlikZUzytkownikami{
+class PlikZUzytkownikami : public PlikTekstowy{
     const string NAZWA_PLIKU_Z_UZYTKOWNIKAMI;
     fstream plikTekstowy;
-    bool czyPlikJestPusty();
     string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
     Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
 public:

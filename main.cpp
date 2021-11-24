@@ -49,7 +49,9 @@ int main()
 
         if(wybor == '1') {
             ksiazkaAdresowa.logowanieUzytkownika();
-            menu(ksiazkaAdresowa);
+            if (ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika() > 0){
+                menu(ksiazkaAdresowa);
+            }
         } else if (wybor == '2') {
             ksiazkaAdresowa.rejestracjaUzytkownika();
         } else if (wybor == '3') {

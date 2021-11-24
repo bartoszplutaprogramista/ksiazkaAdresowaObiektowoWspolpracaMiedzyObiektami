@@ -1,21 +1,5 @@
 #include "PlikZAdresatami.h"
 
-/*
-string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(vector <Adresat> adresaci){
-    string liniaZDanymiAdresata = "";
-
-    int sizeOfVectorAdresaci = adresaci.size();
-
-    liniaZDanymiAdresata += MetodyPomocnicze::konwerjsaIntNaString(adresaci[sizeOfVectorAdresaci-1].pobierzId()) + '|';
-    liniaZDanymiAdresata += MetodyPomocnicze::konwerjsaIntNaString(adresaci[sizeOfVectorAdresaci-1].pobierzIdUzytkownika()) + '|';
-    liniaZDanymiAdresata += adresaci[sizeOfVectorAdresaci-1].pobierzImie() + '|';
-    liniaZDanymiAdresata += adresaci[sizeOfVectorAdresaci-1].pobierzNazwisko() + '|';
-    liniaZDanymiAdresata += adresaci[sizeOfVectorAdresaci-1].pobierzNumerTelefonu() + '|';
-    liniaZDanymiAdresata += adresaci[sizeOfVectorAdresaci-1].pobierzEmail() + '|';
-    liniaZDanymiAdresata += adresaci[sizeOfVectorAdresaci-1].pobierzAdres() + '|';
-    return liniaZDanymiAdresata;
-} */
-
 string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(vector <Adresat> adresaci, int i){
     string liniaZDanymiAdresata = "";
 
@@ -96,7 +80,7 @@ bool PlikZAdresatami::dopiszAdresataDoPliku(vector <Adresat> adresaci){
     {
         liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresaci, sizeOfVectorAdresaci);
 
-        if (czyPlikJestPusty(plikTekstowy) == true)
+        if (czyPlikJestPusty() == true)
         {
             plikTekstowy << liniaZDanymiAdresata;
         }
@@ -154,14 +138,6 @@ string PlikZAdresatami::pobierzLiczbe(string tekst, int pozycjaZnaku){
         pozycjaZnaku ++;
     }
     return liczba;
-}
-
-bool PlikZAdresatami::czyPlikJestPusty(fstream &plikTekstowy){
-    plikTekstowy.seekg(0, ios::end);
-    if (plikTekstowy.tellg() == 0)
-        return true;
-    else
-        return false;
 }
 
 int PlikZAdresatami::pobierzIdOstatniegoAdresata(){
