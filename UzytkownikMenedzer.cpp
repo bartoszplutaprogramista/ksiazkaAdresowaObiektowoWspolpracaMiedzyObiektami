@@ -57,8 +57,6 @@ void UzytkownikMenedzer::wypiszWszystkichUzytkownikow(){
 }
 
 int UzytkownikMenedzer::logowanieUzytkownika(){
-    Uzytkownik uzytkownik;
-    MetodyPomocnicze metodyPomocnicze;
     int ileRazy = 1;
     int rozmiarVectora = uzytkownicy.size();
     string login = "", haslo = "";
@@ -102,7 +100,6 @@ int UzytkownikMenedzer::logowanieUzytkownika(){
 
 void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika(){
     string noweHaslo = "";
-    Uzytkownik uzytkownik;
     cout << "Podaj nowe haslo: ";
     noweHaslo = MetodyPomocnicze::wczytajLinie();
     int sizeOfVector = uzytkownicy.size();

@@ -7,9 +7,9 @@
 using namespace std;
 
 class PlikTekstowy{
-
+    fstream plikTekstowy;
 public:
-    bool czyPlikJestPusty();
+    bool czyPlikJestPusty(fstream &plikTekstowy);
 };
 
 #endif

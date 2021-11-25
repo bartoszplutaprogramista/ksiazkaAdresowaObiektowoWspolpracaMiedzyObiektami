@@ -80,7 +80,7 @@ bool PlikZAdresatami::dopiszAdresataDoPliku(vector <Adresat> adresaci){
     {
         liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresaci, sizeOfVectorAdresaci);
 
-        if (czyPlikJestPusty() == true)
+        if (czyPlikJestPusty(plikTekstowy) == true)
         {
             plikTekstowy << liniaZDanymiAdresata;
         }
