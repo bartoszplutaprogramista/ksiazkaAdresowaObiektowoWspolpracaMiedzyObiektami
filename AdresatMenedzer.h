@@ -27,7 +27,6 @@ public:
     int dodajAdresata(int idZalogowanegoUzytkownika);
     int usunAdresata();
     void edytujAdresata();
-    int zwrocNumerLiniiSzukanegoAdresata(int idAdresata);
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
     void wyswietlWszystkichAdresatow();
     void wyswietlDaneAdresata(int i);

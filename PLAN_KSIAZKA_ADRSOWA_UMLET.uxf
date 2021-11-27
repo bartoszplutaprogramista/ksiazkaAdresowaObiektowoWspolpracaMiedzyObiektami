@@ -104,7 +104,7 @@
       <x>520</x>
       <y>808</y>
       <w>512</w>
-      <h>224</h>
+      <h>208</h>
     </coordinates>
     <panel_attributes>AdresatMenedzer
 --
@@ -118,7 +118,6 @@
 + dodajAdresata(int idZalogowanegoUzytkownika): int
 + usunAdresata(): int
 + edytujAdresata(): void
-+ zwrocNumerLiniiSzukanegoAdresata(int idAdresata): int
 + zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst): string
 + wyswietlWszystkichAdresatow(): void
 + wyswietlDaneAdresata(int i): void

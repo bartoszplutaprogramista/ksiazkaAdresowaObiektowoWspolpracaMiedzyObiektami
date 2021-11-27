@@ -29,7 +29,6 @@ string AdresatMenedzer::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst)
 
 Adresat AdresatMenedzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika){
     Adresat adresat;
-
     adresat.ustawId(plikZAdresatami.pobierzIdOstatniegoAdresata()+1);
     adresat.ustawIdUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
@@ -105,6 +104,9 @@ int AdresatMenedzer::usunAdresata(){
                 adresaci.erase(itr);
                 cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
                 system("pause");
+
+                plikZAdresatami.ustalIdOstatniegoAdresata();
+
                 return idUsuwanegoAdresata;
             }
             else
@@ -122,37 +124,6 @@ int AdresatMenedzer::usunAdresata(){
     }
     return 0;
 }
-
-int AdresatMenedzer::zwrocNumerLiniiSzukanegoAdresata(int idAdresata){
-    bool czyIstniejeAdresat = false;
-    int numerLiniiWPlikuTekstowym = 1;
-    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
-    fstream plikTekstowy;
-    string nowy = plikZAdresatami.pobierzNazwePlikuZAdresatami();
-    plikTekstowy.open(nowy.c_str(), ios::in);
-
-    if (plikTekstowy.good() == true && idAdresata != 0)
-    {
-        while(getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami))
-        {
-            if(idAdresata == plikZAdresatami.pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami))
-            {
-                czyIstniejeAdresat = true;
-                plikTekstowy.close();
-                return numerLiniiWPlikuTekstowym;
-            }
-            else
-                numerLiniiWPlikuTekstowym++;
-        }
-        if (czyIstniejeAdresat == false)
-        {
-            plikTekstowy.close();
-            return 0;
-        }
-    }
-    return 0;
-}
-
 
 void AdresatMenedzer::edytujAdresata(){
     system("cls");

@@ -208,3 +208,16 @@ void PlikZAdresatami::zmienDaneEdytowanegoAdresataIZapiszZmianyDoPlikuTekstowego
         MetodyPomocnicze::zmienNazwePliku(nazwaTymczasowegoPlikuZAdresatami, NAZWA_PLIKU_Z_ADRESATAMI);
     }
 }
+
+int PlikZAdresatami::ustalIdOstatniegoAdresata(){
+    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
+    fstream plikTekstowy;
+    plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
+    if (plikTekstowy.good() == true){
+        while(getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami)){
+            idOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami);
+        }
+    }
+    plikTekstowy.close();
+    return idOstatniegoAdresata;
+}
